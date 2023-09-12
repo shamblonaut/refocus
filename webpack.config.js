@@ -6,10 +6,12 @@ module.exports = {
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   plugins: [
     new htmlPlugin({
       title: "ReFocus | Manage your life",
+      favicon: "./assets/favicon.ico",
     }),
   ],
 
@@ -20,7 +22,7 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(png|jpg|jpeg|svg|gif)$/i,
+        test: /\.(png|jpg|jpeg|svg|gif|ico)$/i,
         type: "asset/resource",
       },
     ],
