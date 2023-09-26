@@ -14,11 +14,14 @@ const TaskManager = (() => {
 
   let removeProject = id => delete projects[id];
 
+  const priorities = ["Normal", "Low", "Medium", "High"];
+
   return {
     getProjects,
     createProject,
     removeProject,
+    priorities,
   };
 })();
 
-export { TaskManager }
+export { TaskManager };

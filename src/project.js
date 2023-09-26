@@ -25,8 +25,8 @@ class Project {
     this.color = color;
   }
 
-  createTask(title, description="", dueDate="", priority=4) {
-    const task = new Task(title, description, dueDate, priority);
+  createTask(title, dueDate, description, priority) {
+    const task = new Task(title, dueDate, description, priority, this.id);
     this.tasks[task.id] = task;
     return task.id;
   }

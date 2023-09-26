@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@font-face {
+    font-family: "Dune Rise";
+    src: url("../../assets/Dune_Rise.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+button {
+    color: #ffffff;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.pseudo-button {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    padding-right: 50px;
+    background-color: #223843;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.wordmark {
+    margin-left: 25px;
+    font-family: "Dune Rise", sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading, .new-project {
+    font-size: 1.5rem;
+}
+
+.project {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-name, .actions {
+    font-size: 1.25rem;
+}
+
+.main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    /* align-items: center; */
+    background-color: #678391;
+}
+
+.name {
+    font-size: 3rem;
+    margin-bottom: 5vh;
+    background-color: #522e8d;
+    padding: 2vh;
+    text-align: center;
+}
+
+.new-task {
+    font-size: 1.25rem;
+}
+
+.tasks {
+    position: relative;
+    display: grid;
+    row-gap: 10px;
+    padding: 25px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task {
+    background-color: #522e8d;
+    border: 2px solid #b1b1b1;
+
+    padding: 10px 20px;
+    border-radius: 15px;
+    width: 50vw;
+
+    display: grid;
+    grid-template-columns: min-content 1fr max-content min-content;
+    gap: 25px;
+    align-items: center;
+}
+
+.task.priority-1 {
+    border-color: #1F6EE6;
+}
+
+.task.priority-2 {
+    border-color: #FF9100;
+}
+
+.task.priority-3 {
+    border-color: #F72424;
+}
+
+.task.checked {
+    border-color: #24b34f;
+    animation: disappear 1s linear forwards;
+}
+
+@keyframes disappear {
+    50% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.done {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: #678391;
+    border: 2px solid #b1b1b1;
+    border-radius: 100%;
+}
+
+.done.active {
+    grid-row: 1 / 4;
+    grid-column: 1 / 2;
+}
+
+.done::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 3px;
+    width: 3px;
+    height: 7px;
+    border: solid #24b34f;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) scale(1);
+    opacity: 0;
+}
+
+
+.done.priority-1 {
+    border-color: #1F6EE6;
+    background-color: #75acff;
+}
+
+.done.priority-2 {
+    border-color: #FF9100;
+    background-color: #ffb553;
+}
+
+.done.priority-3 {
+    border-color: #F72424;
+    background-color: #ff6e6e;
+}
+
+.done.checked {
+    border-color: #24b34f;
+    background-color: #90ffb0;
+}
+
+.done.checked::after {
+    opacity: 1;
+}
+
+.title {
+    grid-area: "title";
+    position: relative;
+    max-width: fit-content;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.title.strike::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 2px;
+    border-radius: 25%;
+    background-color: #ffffff;
+    animation: strike 500ms linear forwards;
+}
+
+@keyframes strike {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.expand {
+    font-size: 1.1rem;
+}
+
+.description {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+}
+
+.priority {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+}
+
+.pnf {
+    display: flex;
+    margin-top: 25%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pnf-message {
+    font-size: 2rem;
+}
+
+.pnf>.new-project {
+    margin-top: 25px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 10px;
+    background-color: #0ac744;
+    font-size: 1.25rem;
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #362e2e80;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    background-color: #522e8d;
+    padding: 25px 50px;
+    border-radius: 25px;
+    display: grid;
+    grid-auto-flow: row;
+    row-gap: 10px;
+    position: relative;
+}
+
+.modal-heading {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.input-field {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 25px;
+}
+
+.input-field {
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    padding: 2px;
+}
+
+.priority-select {
+    padding-left: 5px;
+}
+
+.description-field>textarea {
+    padding: 5px;
+    resize: none;
+}
+
+.cancel-button {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 2rem;
+}
+
+.create-project-button, .create-task-button {
+    padding: 5px 0;
+    color: #000000;
+}

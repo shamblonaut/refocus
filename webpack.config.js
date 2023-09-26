@@ -1,5 +1,6 @@
 const path = require("path");
 const htmlPlugin = require("html-webpack-plugin");
+const faviconsPlugin = require("favicons-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -11,8 +12,8 @@ module.exports = {
   plugins: [
     new htmlPlugin({
       title: "ReFocus | Manage your life",
-      favicon: "./assets/favicon.ico",
     }),
+    new faviconsPlugin("./assets/refocus-logo.svg"),
   ],
 
   module: {

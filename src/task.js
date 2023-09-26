@@ -1,10 +1,10 @@
 let taskCounter = 1;
 
 class Task {
-  constructor(title, description, dueDate, priority, projectID) {
+  constructor(title, dueDate, description, priority, projectID) {
     this.title = title;
-    this.description = description;
     this.dueDate = dueDate;
+    this.description = description;
     this.priority = priority;
     this.projectID = projectID;
     this.note = "";
@@ -15,8 +15,8 @@ class Task {
   }
 
   getTitle() { return this.title }
-  getDescription() { return this.description }
   getDueDate() { return this.dueDate }
+  getDescription() { return this.description }
   getPriority() { return this.priority }
   getProjectID() { return this.projectID }
   getNotes() { return this.notes }
@@ -27,12 +27,12 @@ class Task {
     this.title = title;
   }
 
-  setDescription(description) {
-    this.description = description;
-  }
-
   setDueDate(dueDate) {
     this.dueDate = dueDate;
+  }
+
+  setDescription(description) {
+    this.description = description;
   }
   
   setPriority(priority) {
